@@ -1,0 +1,68 @@
+<section class=" px-5 ">
+    <div class="row ">
+        <div class="col-lg-4 col p-4 m-sm-5 form shadow-lg" >
+            <div class="text-center"><img src="../../../assets/images/logosms.png" id="logo" alt="Logo du site" /><p>SendIt</p></div>
+            <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                <div class="signinMessage alert-danger"
+                *ngIf="signinMessage != '' ">
+                    <p>{{signinMessage}}</p>
+                </div>
+                <div class="authMessage alert-warning"
+                *ngIf="authMessage != '' ">
+                    <p>{{authMessage}}</p>
+                </div>
+                
+                <div class="mb-3 ">
+                    <label for="tel" class="form-label">Phone number</label>
+                    <input type="tel"
+                    class="form-control"
+                    id="phone"
+                    formControlName="phone" />
+                </div>
+                <div class="mb-1 small text-danger"
+                                *ngIf="phone?.errors?.pattern"><p>The phone should start with 6 and contains 9 digits!</p>
+                    </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="passwordDiv">
+                        <input type="password"
+                                class="form-control"
+                                id="password"
+                                formControlName="password"
+                                appPassword >
+                    </div>
+                    <div class="mb-1 small text-danger"
+                    *ngIf="password?.errors?.minlength"><p>The password must contain at least 6 characters !</p>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                                *ngIf="!password?.errors?.minlength && password?.errors?.pattern"><p>The password must contain at least one special character !</p>
+                    </div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="check">
+                    <label class="form-check-label" for="check">Check me out</label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" 
+                    class="btn btn--outline-primary"
+                    [ngClass]="{'btn--disabled':signinForm.invalid}"
+                    >Sign in</button>
+                </div>
+                <div class="text-center mt-2">
+                    <a routerLink="/auth/forgotpassword" class="fromleft">Forgot password ?</a>
+                </div>  
+                <hr>
+                <div class="text-center mt-2">
+                    <a routerLink="/auth/signup">Don't have an account ? Sign up</a>
+                </div>   
+            </form>
+            
+            <div class=" d-flex align-items-end flex-column mt-2 " >
+                <br>
+                <a routerLink="/">Go back to home</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
