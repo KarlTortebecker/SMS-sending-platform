@@ -1,0 +1,75 @@
+.deplacement{
+    margin-left: 200px;
+    width: 800px;
+    border-radius: 25px;
+    box-shadow: 0 30px 70px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+
+}
+
+.profil{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.nom{
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+/* hr{
+    width: 600px;
+} */
+
+.conversation{
+    display: flex;
+    flex-direction: column;
+}
+
+.gauche{
+    background-color: wheat;
+    width: 350px;
+}
+
+.droite{
+    background-color: aqua;
+    width: 350px;
+    margin-left: auto;
+}
+
+.gauche, .droite {
+    border-radius: 20px;
+}
+
+.gauche, .droite, p{
+    padding-left: 5px;
+}
+
+.form{
+    display: flex;
+    margin-top: 40px ;
+    padding-left: 20px;
+}
+
+textarea{
+    border-radius: 15px;
+    height: 30px;
+    width: 600px;
+    padding-left: 15px;
+    padding-top: 7px;
+}
+
+#envoie{
+    height: 20px;
+}
+
+button{
+    margin-left: 35px;
+    cursor: pointer;
+}
