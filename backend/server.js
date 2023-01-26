@@ -1,13 +1,5 @@
-const app = require('express')();
-
-app.listen(3005, () => {
-    console.log("The server running on the port 3005");
-});
-
-
-
-
-/**const passport = require('passport')
+const express = require('express')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
@@ -21,6 +13,7 @@ const auth = require('./auth')
 
 const port = process.env.PORT || 1337
 
+const app = express()
 
 app.use(bodyParser.json())
 app.use(middleware.cors)
@@ -57,4 +50,4 @@ app.get('/discussions/:id', auth.ensureUser, discussion_api.getDiscussion)
 
 app.use(middleware.handleError)
 
-app.listen(port, () => console.log(`Listening on port ${port}`)) **/
+app.listen(port, () => console.log(`Listening on port ${port}`)) 

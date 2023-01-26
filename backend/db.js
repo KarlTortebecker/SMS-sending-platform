@@ -1,7 +1,12 @@
 const mongoose = require('mongoose')
 
 mongoose.connect(
-    process.env.MONGO_URI || 'mongodb://localhost:27017/messagedb'
-)
+    "mongodb://127.0.0.1:27017/messagedb"
+).then(()=>{
+    console.log('server connected')
+}).catch((e) => {
+    console.log(e)
+})
+
 
 module.exports = mongoose   
