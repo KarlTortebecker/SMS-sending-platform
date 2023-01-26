@@ -9,13 +9,21 @@ import { IndexComponent } from './index/index.component';
 import { NavIndexComponent } from './nav-index/nav-index.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuComponent } from './menu/menu.component';
+import { ConversationsComponent } from './conversations/conversations.component';
+import { ConversationsListComponent } from './conversations-list/conversations-list.component';
+import { SingleConversationComponent } from './single-conversation/single-conversation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     NavIndexComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    MenuComponent,
+    ConversationsListComponent,
+    SingleConversationComponent,
+    ConversationsComponent
   ],
   imports: [
     BrowserModule,

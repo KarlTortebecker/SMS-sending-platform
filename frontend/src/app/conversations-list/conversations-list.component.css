@@ -1,0 +1,25 @@
+img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.classement{
+    display: flex;
+}
+
+.profil{
+    margin: 15px;
+}
+
+.nom{
+    font-size: 25px;
+}
+
+hr{
+    width: 900px;
+ }
+
+.passage{
+    cursor: pointer;
+}
