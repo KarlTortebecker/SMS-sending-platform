@@ -1,6 +1,5 @@
-const Contacts = require('../models/contacts')
-const Discussions = require('../models/discussions')
-const autoCatch = require('../lib/auto-catch').autoCatch
+const Contacts = require('../models/contacts') 
+const autoCatch = require('../auto-catch')
 
 module.exports = {
     createContact: autoCatch(createContact),
@@ -56,7 +55,7 @@ async function editContact(req, res, next){
     const tmpContact = await Contacts.get({name: req.body.name, owner: req.user.id})
 
     if(tmpContact){
-        res.status(500).json({message: "You already have a contact with this name."})
+        res.status(403).json({message: "You already have a contact with this name."})
     }else{
         if(await checkOwner(req.params.id, req.user.id)){
             const contact = await Contacts.edit(req.params.id, change)

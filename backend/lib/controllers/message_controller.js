@@ -1,6 +1,6 @@
 const Messages = require('../models/messages')
-const autoCatch = require('../lib/auto-catch').autoCatch
-const axios = require('axios')
+const autoCatch = require('../auto-catch') 
+var axios = require('axios')
 
 module.exports = {
     createMessage: autoCatch(createMessage),
@@ -8,15 +8,43 @@ module.exports = {
     deleteMessage: autoCatch(deleteMessage)
 }
 
+ 
+var data = JSON.stringify({
+  "phoneNumber": "+237691325895",
+  "message": "On dit quoi ?",
+  "mediaUrl": "",
+  "externalId": "",
+  "lineId": ""
+});
+
+var config = {
+  method: 'post',
+  url: 'https://asap-desk.com/api/v0/whatsapp/message',
+  headers: { 
+    'Authorization': 'Basic NThkMGVhMjU4N2E3OmJiYjA5YWJjLTFlMzctNDA3NC04ZDM3LTAzZjVkZWQ1YjkyYw==', 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+
 //handle create message request
 async function createMessage(req, res, next){
     const fields = req.body
 
     fields.sender = req.user.id
 
-    const message_API_URL = "http://proxysms.mufoca.com/api/v0/shortMessages";
+    const message_API_URL = "https://asap-desk.com/api/v0/whatsapp/message"; //https://asap-desk.com/api/v0/whatsapp/message
 
-    const sendingResponse = axios.post(message_API_URL,
+    const sendingResponse =  axios.post(message_API_URL,
         {
             phoneNumber: req.body.receiverPhoneNumber ,
             message: req.body.text

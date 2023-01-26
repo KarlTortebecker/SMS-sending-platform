@@ -1,7 +1,7 @@
 const TmpUsers = require('../models/tmpUsers')
 const Users = require('../models/users')
-const autoCatch = require('../lib/auto-catch').autoCatch
-const auth = require('../auth')
+const autoCatch = require('../auto-catch')
+const auth = require('./auth_controller')
 
 module.exports = {
     createTmpUser: autoCatch(createTmpUser),

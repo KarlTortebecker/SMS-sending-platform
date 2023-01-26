@@ -1,9 +1,5 @@
-module.exports = {
-    cors,
-    handleError
-}
-
-const { STATUS_CODES } = require('http')
+module.exports =  cors 
+ 
 
 //middleware to manage the cross origin authorisations
 function cors(req, res, next){
@@ -22,14 +18,4 @@ function cors(req, res, next){
     next()
 }
 
-//middleware to handle the errors
-function handleError(err, req, res, next){
-    console.error(err)
-
-    if(res.headerSent) return next(err)
-    
-    const statusCode = err.statusCode || 500
-    const errorMessage = err.message || STATUS_CODES[statusCode] || 'Internal Error'
-    
-    res.status(statusCode).json({ error: errorMessage })
-}
+ 

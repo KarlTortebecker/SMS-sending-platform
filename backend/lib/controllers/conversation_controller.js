@@ -1,5 +1,6 @@
 const Discussions = require('../models/discussions')
-const autoCatch = require('../lib/auto-catch').autoCatch
+const autoCatch = require('../auto-catch')
+const auth = require('./auth_controller')
 
 module.exports = {
     createDiscussion: autoCatch(createDiscussion),

@@ -1,6 +1,6 @@
 const Users = require('../models/users')
-const autoCatch = require('../lib/auto-catch').autoCatch
-const auth = require('../auth')
+const autoCatch = require('../auto-catch') 
+const auth = require('./auth_controller')
 
 const randomstring = require('randomstring')
 
@@ -19,6 +19,7 @@ module.exports = {
 
 //handle the create user request
 async function createUser(req, res, next){
+    console.log("create new user")
     const user = await Users.create(req.body)
     
     //construction of the object that will be returned in the response

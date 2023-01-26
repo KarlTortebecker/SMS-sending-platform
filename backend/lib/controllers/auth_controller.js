@@ -5,12 +5,12 @@ const bcrypt = require('bcrypt')
 
 const jwtSecret = process.env.JWT_SECRET || "secret_token_should_be_strong_in_production"
 const jwt_login_Opts = {algorithm: 'HS256', expiresIn:'30d'}
-const CONFIRM_PHONE_NUMBER_TOKEN_VALIDITY_PERIOD = 60 * 60 * 1000;
+const CONFIRM_PHONE_NUMBER_TOKEN_VALIDITY_PERIOD = 3600000;
 const jwt_confirm_phoneNumber_Opts = {algorithm: 'HS256', expiresIn: CONFIRM_PHONE_NUMBER_TOKEN_VALIDITY_PERIOD.toString()}
 const jwt_resetPassword_Opts = jwt_confirm_phoneNumber_Opts
 
-const autoCatch = require('./lib/auto-catch').autoCatch
-const Users = require('./models/users')
+const autoCatch = require('./../auto-catch') 
+const Users = require('./../models/users')
 
 passport.use(adminStrategy())
 const authenticate = passport.authenticate('local', {session: false})
@@ -33,6 +33,7 @@ async function login(req, res, next){
     res.json({success: true, token: token, user_id: req.user.id})
 }
 
+
 async function sign(payload, jwtOpts){
     const token = await jwt.sign(payload, jwtSecret, jwtOpts)
 
@@ -40,6 +41,7 @@ async function sign(payload, jwtOpts){
 }
 
 async function verify(jwtString = ''){
+    
     jwtString = jwtString.replace(/^Bearer /i, '')
 
     try{
