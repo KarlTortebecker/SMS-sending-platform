@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm : FormGroup = this.fb.group({ });
-  signupMessage: string = 'gfhghfsghdg';
+  signupMessage: string = 'Welcome to the signup page';
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router:Router) { 
