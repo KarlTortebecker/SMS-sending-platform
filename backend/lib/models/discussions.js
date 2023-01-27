@@ -30,7 +30,7 @@ module.exports = {
 
 //function to create a new discussion
 async function create(fields){
-    y
+     
     const discussion = await new Discussion(fields).save()
 
     return discussion

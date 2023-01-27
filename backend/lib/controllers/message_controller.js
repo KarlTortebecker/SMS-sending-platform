@@ -17,23 +17,7 @@ var data = JSON.stringify({
   "lineId": ""
 });
 
-var config = {
-  method: 'post',
-  url: 'https://asap-desk.com/api/v0/whatsapp/message',
-  headers: { 
-    'Authorization': 'Basic NThkMGVhMjU4N2E3OmJiYjA5YWJjLTFlMzctNDA3NC04ZDM3LTAzZjVkZWQ1YjkyYw==', 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
 
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
 
 
 //handle create message request
@@ -42,33 +26,32 @@ async function createMessage(req, res, next){
 
     fields.sender = req.user.id
 
-    const message_API_URL = "https://asap-desk.com/api/v0/whatsapp/message"; //https://asap-desk.com/api/v0/whatsapp/message
-
-    const sendingResponse =  axios.post(message_API_URL,
-        {
+    const config = {
+        method: 'post',
+        url: 'https://asap-desk.com/api/v0/whatsapp/message',
+        headers: { 
+          'Authorization': 'Basic NThkMGVhMjU4N2E3OmJiYjA5YWJjLTFlMzctNDA3NC04ZDM3LTAzZjVkZWQ1YjkyYw==', 
+          'Content-Type': 'application/json'
+        },
+        data : {
             phoneNumber: req.body.receiverPhoneNumber ,
             message: req.body.text
-        },{
-            auth:{
-                username: "f16187da70b6",
-                password: "b6901d40-f211-930a-8e0c-1cdad7a64f99"
-            }
-        }).then(
-            (response) =>{
-                console.log("___________________________________________")
-                if(response.status === 201){
-                    console.log(response.data)
+        }
+      };
+      
 
-                }
-            }
+    axios(config).then(function (response) {
 
-        ).catch((error) => {
-            console.log(error.data);
-            
-            return next(error);
-        })
 
-       const message = await Messages.create(fields)
+        console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+        console.log(error);
+        return next(error);
+    });
+
+    
+      const message = await Messages.create(fields)
 
        res.json(message)
 }
