@@ -4,9 +4,6 @@ const autoCatch = (fn) => ((req, res, next) =>{
     .catch((err) => next(err));
 });
 
-module.exports = {
-    autoCatch
-}
+module.exports = autoCatch
 
-
-
+ 

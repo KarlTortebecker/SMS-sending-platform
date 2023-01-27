@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class ContactService {
   contactSubject = new Subject<Contact[]>();
-  private contacts: Contact[] = [new Contact('654454354','John DOE', "../../../assets/images/logosms.png")];
+  private contacts: Contact[] = [];
   emitContacts() {
     this.contactSubject.next(this.contacts.slice());
   }
