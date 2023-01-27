@@ -9,21 +9,12 @@ import { IndexComponent } from './index/index.component';
 import { NavIndexComponent } from './nav-index/nav-index.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MenuComponent } from './menu/menu.component';
-import { ConversationsComponent } from './conversations/conversations.component';
-import { ConversationsListComponent } from './conversations-list/conversations-list.component';
-import { SingleConversationComponent } from './single-conversation/single-conversation.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     NavIndexComponent,
     NotFoundComponent,
-    MenuComponent,
-    ConversationsListComponent,
-    SingleConversationComponent,
-    ConversationsComponent
   ],
   imports: [
     BrowserModule,

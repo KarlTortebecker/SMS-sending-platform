@@ -10,9 +10,9 @@ export class ConversationsListComponent implements OnInit {
 
   constructor(private router: Router) { }
   conversations:any[]=[
-    {nom: 'JFK', message:'Hey you fella !'},
-    {nom: 'John Doe', message:'Hope u ok'},
-    {nom: 'Lara Scott', message:'ETA: 5min'},
+    {nom: 'Joel', message:'Hey my friend !'},
+    {nom: 'Franck', message:"I hape you're ok"},
+    {nom: 'Takala', message:'Waiting since 5'},
     ];
   ngOnInit(): void {
   }

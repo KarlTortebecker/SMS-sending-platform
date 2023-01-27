@@ -5,9 +5,6 @@ import { PreloadAllModules } from '@angular/router';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { IndexComponent } from './index/index.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MenuComponent } from './menu/menu.component';
-import { ConversationsComponent } from './conversations/conversations.component';
-import { SingleConversationComponent } from './single-conversation/single-conversation.component';
 
 const routes: Routes = [
   
@@ -20,13 +17,6 @@ const routes: Routes = [
     path: '**', 
     redirectTo: 'not-found',
     pathMatch: 'full' 
-  },
-   {
-    path:'menu', component:MenuComponent,
-    children:[
-      {path:'conversations', component:ConversationsComponent},
-      {path:'ab', component:SingleConversationComponent}
-    ]
   }
 ];
 
