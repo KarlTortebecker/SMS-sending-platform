@@ -1,4 +1,10 @@
 @import "../../../styles.scss";
+
+section{
+    background: linear-gradient(rgba(2, 124, 247, 0.5),rgba(248, 125, 2, 0.5));
+    height:100%;
+    width: 100%;
+}
 .row{
     display:flex;
     justify-content: center;
@@ -7,12 +13,17 @@
 #logo{
     width: 75px;
     height: 75px;
-    border: 1px solid $c-primary;
-    border-radius: 37.5px;
+}
+
+img+p{
+    text-align: center;
+    font-weight: bold;
+    color: #0A10E8;
 }
 
 .form{
-    background-color: white;   
+    background: linear-gradient(rgba(248, 125, 2, 0.5), rgba(2, 124, 247, 0.5));
+    background-position: center;
 }
 .mb-3{
     position: relative;
