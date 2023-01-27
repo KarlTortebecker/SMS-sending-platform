@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center 20px;
+}
+
+/* You can add global styles to this file, and also import other style files */
 $c-primary: rgb(25, 118, 210);
 $c-secondary: rgb(197, 53, 79);
 $c-paleBlue: rgb(227, 230, 237);
