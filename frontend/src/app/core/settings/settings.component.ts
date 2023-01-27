@@ -9,7 +9,7 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  currentUser: User = new User('675454554','jesuisaw','johndoe06', 'fdfdfdfd');
+  currentUser: User = new User('656302780','password','Karl Tortebecker', 'fdfdfdfd');
   isShow: boolean= false;
   constructor() { }
 

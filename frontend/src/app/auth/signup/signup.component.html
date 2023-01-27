@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col p-4 m-sm-5 form shadow-lg" >
-                <div class="text-center"><img src="../../../assets/images/logosms.png" id="logo" alt="Logo du site" /><p>SendIt</p></div>
+                <div class="text-center"><img src="../../../assets/images/logo.png" id="logo" alt="Logo du site" /><p>AppSMS</p></div>
                 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
-                    <div class="signupMessage alert-danger"
+                    <div class="signupMessage alert-info"
                     *ngIf="signupMessage != '' ">
                         <p>{{signupMessage}}</p>
                     </div>
@@ -70,10 +70,6 @@
                     </div>   
                 </form>
                 
-                <div class=" d-flex align-items-end flex-column mt-2 " >
-                    <br>
-                    <a routerLink="/">Go back to home</a>
-                </div>
             </div>
         </div>
 
