@@ -87,7 +87,7 @@ function adminStrategy(){
 async function ensureUser(req, res, next){
     const jwtString = req.headers.authorization || req.cookies.jwt
 
-    console.log(req.headers)
+    console.log(req.headers.authorization)
 
     const payload = await verify(jwtString)
 

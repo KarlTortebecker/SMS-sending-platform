@@ -20,12 +20,13 @@ module.exports = {
 //handle the create user request
 async function createUser(req, res, next){
     console.log("create new user")
+    console.log(req.body)
     const user = await Users.create(req.body)
     
     //construction of the object that will be returned in the response
-    const {username, email, phoneNumber, isAdmin} = user 
+    const {username, phoneNumber, password, isAdmin} = user 
 
-    res.json({username, email, phoneNumber, isAdmin})
+    res.json({username, phoneNumber, password, isAdmin})
 }
 
 //handle the get users list request

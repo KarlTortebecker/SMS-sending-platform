@@ -24,11 +24,14 @@ export class SignupComponent implements OnInit {
     return this.signupForm.get('password');
   }
   onSubmit(): void {
-    var email = this.signupForm.get('email')!.value;
+    var username = this.signupForm.get('email')!.value;
     var password = this.signupForm.get('password')!.value;
     var phone = this.signupForm.get('phone')!.value;
-    this.authService.signUpUser(email,phone,password).then(
-      () => {this.router.navigate(['/']);},
+    
+    this.authService.signUpUser(phone,username,password)
+    .then( res => res.json() )
+    .then(
+      () => {this.router.navigate(['/auth/signin']);},
       (error) => {
         this.signupMessage = "message d'erreur venant du backend ";
         this.router.navigate(['/auth/signup']);

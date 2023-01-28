@@ -27,13 +27,28 @@ export class SigninComponent implements OnInit {
   get password(){
     return this.signinForm.get('password');
   }
+
+  setCookie(cname :string, cvalue :string, exdays : number): void {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
   onSubmit(): void {
     var phone = this.signinForm.get('phone')!.value;
     var password = this.signinForm.get('password')!.value;
-    this.authService.signInUser(phone,password).then(
+    console.log(phone)
+    console.log(password)
+    this.authService.signInUser(phone,password)
+    .then( res => res.json() )
+    .then(
       
-      () => {
-        console.log('Hello');
+      (res) => {
+        
+        this.setCookie("jwt", res.token, 30)
+        console.log(document.cookie);
+
         this.router.navigate(['/core']);
       },
       (error) => {
